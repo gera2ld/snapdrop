@@ -187,7 +187,7 @@ class Peer {
         const progress = this._digester.progress;
         this._onDownloadProgress(progress);
 
-        // occasionally notify sender about our progress 
+        // occasionally notify sender about our progress
         if (progress - this._lastProgress < 0.01) return;
         this._lastProgress = progress;
         this._sendProgress(progress);
@@ -506,11 +506,10 @@ class Events {
 
 
 RTCPeer.config = {
-    'iceServers': [{
-        urls: 'stun:stun.l.google.com:19302'
-    }, {
-        urls: 'turn:192.158.29.39:3478?transport=tcp',
-        credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-        username: '28224511:1379330808'
+    iceServers: [{
+      urls: [
+        'stun:stun.l.google.com:19302',
+        'stun:global.stun.twilio.com:3478'
+      ]
     }]
 }
